@@ -1,0 +1,57 @@
+﻿@model TournamentsIS.Models.Clubs
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Clubs</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClubName" class="control-label"></label>
+                <input asp-for="ClubName" class="form-control" />
+                <span asp-validation-for="ClubName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubAddress" class="control-label"></label>
+                <input asp-for="ClubAddress" class="form-control" />
+                <span asp-validation-for="ClubAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubBudget" class="control-label"></label>
+                <input asp-for="ClubBudget" class="form-control" />
+                <span asp-validation-for="ClubBudget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubDesc" class="control-label"></label>
+                <input asp-for="ClubDesc" class="form-control" />
+                <span asp-validation-for="ClubDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupId" class="control-label"></label>
+                <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TournamentId" class="control-label"></label>
+                <select asp-for="TournamentId" class="form-control" asp-items="ViewBag.TournamentId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="create" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
